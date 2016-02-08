@@ -3,10 +3,13 @@
  */
 (function () {
   'use strict';
-  angular.module('mdDatetimePickerDemo', [
+  var app = angular.module('mdDatetimePickerDemo', [
       'ngMaterialDatePicker'
-    ])
-    .controller('DemoCtrl', function ($scope) {
+    ]).config(function(mdcDatetimePickerDefaultLocaleProvider) {
+        mdcDatetimePickerDefaultLocaleProvider.setDefaultLocale('de');
+      });
+
+    app.controller('DemoCtrl', function ($scope) {
       $scope.date = new Date();
       $scope.time = new Date();
       $scope.dateTime = new Date();
